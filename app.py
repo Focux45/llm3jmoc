@@ -16,13 +16,13 @@ import platform
 #import pickle5 as pickle
 #from pathlib import Path
 
-st.title('Generación Aumentada por Recuperación (RAG) 💬')
+st.title('Analizador de PDF 🐸')
 image = Image.open('Chat_pdf.png')
 st.write("Versión de Python:", platform.python_version())
 st.image(image, width=350)
 with st.sidebar:
    st.subheader("Este Agente, te ayudará a realizar algo de análisis sobre el PDF cargado")
-ke = st.text_input('Ingresa tu Clave')
+ke = st.text_input('Ingresa tu Clave de openAI')
 #os.environ['OPENAI_API_KEY'] = st.secrets['OPENAI_API_KEY']
 os.environ['OPENAI_API_KEY'] = ke
 
@@ -52,7 +52,7 @@ if pdf is not None:
       knowledge_base = FAISS.from_texts(chunks, embeddings)
 
 # show user input
-      st.subheader("Escribe que quieres saber sobre el documento")
+      st.subheader("Escribe que quieres saber sobre el documento, por ejemplo de que trata")
       user_question = st.text_area(" ")
       if user_question:
         docs = knowledge_base.similarity_search(user_question)
