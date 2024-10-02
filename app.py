@@ -17,7 +17,7 @@ import platform
 #from pathlib import Path
 
 st.title('Analizador de PDF 🐸')
-image = Image.open('Chat_pdf.png')
+image = Image.open('descarga.jpeg')
 st.write("Versión de Python:", platform.python_version())
 st.image(image, width=350)
 with st.sidebar:
